@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FiapInvest.Views.PosicaoConsolidadaPage"
+             Title="Posição Consolidada">
+  <StackLayout Padding="25,25,25,25">
+    <StackLayout Orientation="Vertical">
+      <Image Source="grafico300x300.png" Aspect="AspectFill" HeightRequest="300"></Image>
+      <Button Text="Saldo" x:Name="BotaoSaldo" WidthRequest="150" 
+              HorizontalOptions="Center" BackgroundColor="#000000" 
+              TextColor="#ffffff" HeightRequest="60"></Button>
+    </StackLayout>    
+    <StackLayout Orientation="Vertical">
+      <Label Text="Meus Investimentos" FontSize="30"></Label>
+      <ListView x:Name="listViewPosicao" VerticalOptions="FillAndExpand" SeparatorVisibility="Default">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout Orientation="Vertical">
+                <Grid>
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="30*" />
+                  </Grid.RowDefinitions>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="80*" />
+                    <ColumnDefinition Width="10*" />
+                  </Grid.ColumnDefinitions>
+                  <Image Grid.Row="0" Grid.Column="0" Source="ic_poll_black_24dp.png" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                  <Label Grid.Row="0" Grid.Column="1" Text="{Binding NomeFundo}" FontSize="20" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                  <Image Grid.Row="0" Grid.Column="2" Source="ic_keyboard_arrow_right_black_24dp.png" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+                </Grid>
+              </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
+  </StackLayout>
+</ContentPage>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FiapInvest.Views.ConsultaSaldoPage"
+             Title="Consulta Saldo">
+    <StackLayout Padding="25">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="20*" />
+            </Grid.ColumnDefinitions>
+            <StackLayout Grid.Row="0" Grid.Column="0">
+                <Label Text="R$" FontSize="48"></Label>
+            </StackLayout>            
+            <StackLayout Grid.Row="0" Grid.Column="1">
+                <Label Text="Saldo:" FontSize="14"></Label>
+                <Label x:Name="lblSaldo" Text="Valor" FontSize="24"></Label>
+            </StackLayout>            
+        </Grid>
+        <Label Text="Detalhes:" FontSize="34"></Label>
+        <ListView x:Name="listViewPosicao" VerticalOptions="FillAndExpand" SeparatorVisibility="Default">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>                        
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="60*" />
+                                <ColumnDefinition Width="20*" />
+                                <ColumnDefinition Width="5*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Row="0" Grid.Column="0" Source="ic_poll_black_24dp.png" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding NomeFundo}" FontSize="18" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                            <Label Grid.Row="0" Grid.Column="2" Text="{Binding Saldo}" FontSize="14" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+                            <Image Grid.Row="0" Grid.Column="3" Source="ic_keyboard_arrow_right_black_24dp.png" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
