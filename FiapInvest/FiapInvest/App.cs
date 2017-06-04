@@ -1,6 +1,6 @@
-﻿using FiapInvest.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 
@@ -12,7 +12,10 @@ namespace FiapInvest
     {
         public App()
         {
-            MainPage = new MasterMainPage();
+            CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("pt-BR");
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("pt-BR");
+
+            MainPage = new Views.MasterMainPage();
         }
 
         protected override void OnStart()

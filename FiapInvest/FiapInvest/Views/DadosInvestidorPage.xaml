@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>    
+<!--
+    TELA CADASTRO INVESTIDOR
+    
+    Nessa tela temos um formulário que esta diretamente ligado a um model (InvestidorModel) por meio de data-bind
+    Também utilizamos um componente Picker third-part
+        - O Controle esta no projeto no caminho /FiapInvest(Portable)/Views/Controls
+        - Para utilizar este componente no xaml, temos que fazer o import 'xmlns:Controls="clr-namespace:FiapInvest.Views.Controls"' e deve ser 
+          colocado dentro da abertura da tag <ContentPage ...>
+    -->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:Controls="clr-namespace:FiapInvest.Views.Controls"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FiapInvest.Views.DadosInvestidorPage"
+             Title="Dados do Investidor">
+    <!-- Tag ScrollView para dar rolamento de pagina em nosso formulario -->
+    <ScrollView>
+        <!-- StackLayout usado para organizar nossos componentes do formulario no formato VERTICAL -->
+        <StackLayout Padding="25,25,25,25">
+            <!-- Label para identificar o input -->
+            <Label Text="Nome:"></Label>
+            <!-- Entry é nossa caixa de texto, nela deve conter um identificador(x:Name) 
+                 e está recebendo o valor text por meio de data-bind direto com o InvestidorModel -->
+            <Entry x:Name="EntryNome" Text="{Binding NomeInvestidor, Mode=TwoWay}" Placeholder="Nome do Investidor"></Entry>
+
+            <Label Text="CPF:"></Label>
+            <Entry x:Name="EntryCpf" Text="{Binding Cpf, Mode=TwoWay}" Placeholder="999.999.999-99"></Entry>
+
+            <Label Text="E-mail:"></Label>
+            <Entry x:Name="EntryEmail" Text="{Binding Email, Mode=TwoWay}" Placeholder="nome@dominio.com.br"></Entry>
+
+            <Label Text="Telefone:"></Label>
+            <Entry x:Name="EntryTelefone" Text="{Binding Telefone, Mode=TwoWay}" Placeholder="(11) 99999-9999"></Entry>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Patrimônio (Milhares Reais):"></Label>
+                <!-- A label lblValorPatrimonio esta recebendo o valor selecionado do Slider por meio do BindingContext="{x:Reference SliPatrimonio}"
+                     esta referenciando o valor selecionado e adicionando a propriedade "value" ao seu Text para exibir o valor na tela -->
+                <Label x:Name="lblValorPatrimonio" BindingContext="{x:Reference SliPatrimonio}" Text="{Binding Value, Mode=TwoWay}"></Label>
+            </StackLayout>
+
+            <Slider x:Name="SliPatrimonio" Minimum="0" Maximum="1000" Value="{Binding ValorPatrimonio, Mode=TwoWay}"></Slider>
+
+            <Label Text="Perfil:"></Label>
+            <!-- A tag BindablePicker é o nosso controle third-part que foi importado no inicio do arquivo -->
+            <Controls:BindablePicker Title="{Binding Perfil, Mode=TwoWay}" 
+                                 SelectedIndex="{Binding Perfil, Mode=TwoWay}" 
+                                 ItemsSource="{Binding perfis}">
+            </Controls:BindablePicker>
+
+            <Label Text="Data Nascimento:"></Label>
+            <DatePicker x:Name="EntryDataNascimento" Date="{Binding DataNascimento}"/>
+
+            <Button x:Name="ButtonGravar" Text="Gravar"></Button>
+        </StackLayout>
+    </ScrollView>   
+</ContentPage>

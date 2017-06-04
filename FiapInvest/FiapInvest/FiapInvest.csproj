@@ -36,18 +36,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
-    <Compile Include="Business\ConsultaSaldoBusiness.cs" />
+    <Compile Include="Business\InvestidorBusiness.cs" />
     <Compile Include="Business\PosicaoConsolidadaBusiness.cs" />
-    <Compile Include="DataAccessLayer\ConsultaSaldoDAL.cs" />
+    <Compile Include="Business\SaldoBusiness.cs" />
     <Compile Include="DataAccessLayer\PosicaoConsolidadaDAL.cs" />
-    <Compile Include="Models\ConsultaSaldoModel.cs" />
+    <Compile Include="Models\InvestidorModel.cs" />
     <Compile Include="Models\MenuModel.cs" />
     <Compile Include="Models\PosicaoConsolidada.cs" />
+    <Compile Include="Models\SaldoFundo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ConsultaSaldoService.cs" />
+    <Compile Include="Services\InvestidorService.cs" />
     <Compile Include="Services\PosicaoConsolidadaService.cs" />
-    <Compile Include="Views\ConsultaSaldoPage.xaml.cs">
-      <DependentUpon>ConsultaSaldoPage.xaml</DependentUpon>
+    <Compile Include="Services\SaldoService.cs" />
+    <Compile Include="Views\Controls\BindablePicker.cs" />
+    <Compile Include="Views\DadosInvestidorPage.xaml.cs">
+      <DependentUpon>DadosInvestidorPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -60,6 +63,9 @@
     </Compile>
     <Compile Include="Views\PosicaoConsolidadaPage.xaml.cs">
       <DependentUpon>PosicaoConsolidadaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SaldoPage.xaml.cs">
+      <DependentUpon>SaldoPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -81,13 +87,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\MenuPage.xaml">
+    <EmbeddedResource Include="Views\PosicaoConsolidadaPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\PosicaoConsolidadaPage.xaml">
+    <EmbeddedResource Include="Views\MenuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -105,7 +111,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\ConsultaSaldoPage.xaml">
+    <EmbeddedResource Include="Views\SaldoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\DadosInvestidorPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

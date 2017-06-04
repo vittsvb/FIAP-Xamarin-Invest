@@ -8,15 +8,14 @@ namespace FiapInvest.Business
 {
     public class PosicaoConsolidadaBusiness
     {
+
         public IList<PosicaoConsolidada> ConsultarPosicaoConsolidada(int IdClienteConsulta)
         {
             var diasSemAtualizacao = 0;
-
             PosicaoConsolidadaDAL dal = new PosicaoConsolidadaDAL();
             PosicaoConsolidadaService service = new PosicaoConsolidadaService();
 
             IList<PosicaoConsolidada> listaPosicao = dal.ConsultarPosicaoConsolidada(IdClienteConsulta);
-
             if ( listaPosicao != null && listaPosicao.Count > 0 )
             {
                 diasSemAtualizacao = (DateTime.Now - listaPosicao[0].DataAtualizacao).Days;
@@ -31,5 +30,6 @@ namespace FiapInvest.Business
 
             return listaPosicao;
         }
+
     }
 }

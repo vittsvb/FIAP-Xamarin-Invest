@@ -28,7 +28,8 @@ namespace FiapInvest.DataAccessLayer
                 PercentualCarteira = 72,
                 DataAtualizacao = DateTime.Now
             });
-            
+
+
             lista.Add(new PosicaoConsolidada
             {
                 IdCliente = IdClienteConsulta,
