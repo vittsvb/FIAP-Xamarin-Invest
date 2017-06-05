@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:FiapInvest.Views"
              x:Class="FiapInvest.Views.MasterMainPage">
-    <MasterDetailPage.Master>
-        <local:MenuPage x:Name="menuPage" />
-    </MasterDetailPage.Master>
-    <MasterDetailPage.Detail>
-        <NavigationPage>
-            <x:Arguments>
-                <local:PosicaoConsolidadaPage />
-            </x:Arguments>
-        </NavigationPage>
-    </MasterDetailPage.Detail>
+  <MasterDetailPage.Master>
+    <local:MenuPage x:Name="menuPage" />
+  </MasterDetailPage.Master>
+  <MasterDetailPage.Detail>
+    <NavigationPage>
+      <x:Arguments>
+        <local:PosicaoConsolidadaPage />
+      </x:Arguments>
+    </NavigationPage>
+  </MasterDetailPage.Detail>
 </MasterDetailPage>

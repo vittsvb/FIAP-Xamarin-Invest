@@ -6,29 +6,30 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace FiapInvest.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MasterMainPage : MasterDetailPage
     {
         public MasterMainPage()
         {
             InitializeComponent();
-            menuPage.ListItemMenu.ItemSelected += OnItemSelected;
+            menuPage.ListViewMenu.ItemSelected += OnItemSelected;
 
+            //Verificar se o usuário está logado
+            //Chamando a classe Business que acessa o DAL
             Navigation.PushModalAsync(new LoginPage());
         }
 
-        public void OnItemSelected(Object sender, SelectedItemChangedEventArgs e)
+
+
+        void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var item = e.SelectedItem as MenuModel;
-
             if (item != null)
             {
                 Detail = new NavigationPage((Page)Activator.CreateInstance(item.Tipo));
-                menuPage.ListItemMenu.SelectedItem = null;
+                menuPage.ListViewMenu.SelectedItem = null;
                 IsPresented = false;
             }
         }

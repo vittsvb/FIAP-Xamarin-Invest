@@ -5,22 +5,30 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace FiapInvest.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
         public LoginPage()
         {
             InitializeComponent();
-            BotaoLogin.Clicked += login;
+            BotaoLogin.Clicked += Login;
         }
 
-        public void login(object sender, EventArgs e)
+        public void Login(object o, EventArgs e)
         {
-            Navigation.PopModalAsync();
+            // Efetuar chamada de serviço que valida o login
+            // Se o nome e senha estiverem corretos
+            // Fechar a tela de login e exibir o menu (Código Abaixo)
+                Navigation.PopModalAsync();
         }
+
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
+
+
     }
 }

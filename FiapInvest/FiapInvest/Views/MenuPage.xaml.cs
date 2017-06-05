@@ -1,25 +1,14 @@
-﻿using FiapInvest.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using FiapInvest.Models;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace FiapInvest.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuPage : ContentPage
     {
-        public ListView ListItemMenu
-        {
-            get
-            {
-                return listViewMenu;
-            }
-        }
+
+        public ListView ListViewMenu { get { return listViewMenu; } }
 
         public MenuPage()
         {
@@ -29,23 +18,34 @@ namespace FiapInvest.Views
 
         private IList<MenuModel> carregarMenu()
         {
-            IList<MenuModel> listaMenu = new List<MenuModel>();
-
-            listaMenu.Add(new MenuModel
+            IList<MenuModel> lista = new List<MenuModel>();
+            lista.Add(new MenuModel
             {
                 Nome = "Posição Consolidada",
                 Cor = "#E44040",
                 Tipo = typeof(Views.PosicaoConsolidadaPage)
             });
 
-            listaMenu.Add(new MenuModel
+            
+            lista.Add(new MenuModel
             {
-                Nome = "Consulta de Saldo",
-                Cor = "#531968",
-                Tipo = typeof(Views.ConsultaSaldoPage)
+                Nome = "Saldo",
+                Cor = "#444",
+                Tipo = typeof(Views.SaldoPage)
             });
 
-            return listaMenu;
+
+            lista.Add(new MenuModel
+            {
+                Nome = "Dados Investidor",
+                Cor = "#E44040",
+                Tipo = typeof(Views.DadosInvestidorPage)
+            });
+
+            return lista;
         }
+
     }
+
+
 }
